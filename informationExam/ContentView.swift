@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(getDeviceUUID() ?? "default")
         }
         .padding()
     }
@@ -23,4 +23,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+// UIDevice
+func getDeviceUUID() -> String? {
+    return UIDevice.current.identifierForVendor!.uuidString    
 }
